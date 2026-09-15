@@ -1,0 +1,16 @@
+SELECT
+    BOARD_ID,
+    WRITER_ID,
+    TITLE,
+    PRICE,
+    CASE
+        WHEN STATUS = "DONE" THEN "거래완료"
+        WHEN STATUS = "RESERVED" THEN "예약중"
+        WHEN STATUS = "SALE" THEN "판매중"
+        END as 어쩔티비
+FROM
+    USED_GOODS_BOARD
+WHERE
+    CREATED_DATE like "2022-10-05"
+ORDER BY
+    BOARD_ID DESC
