@@ -1,0 +1,22 @@
+SELECT
+    a.NAME,
+    b.COUNT
+FROM
+    ANIMAL_INS as a
+JOIN
+    (
+        SELECT
+            NAME,
+            count(*) as COUNT
+        FROM
+            ANIMAL_INS
+        GROUP BY
+            NAME
+    ) as b
+ON
+    a.NAME = b.NAME AND
+    b.COUNT >= 2
+GROUP BY
+    NAME
+ORDER BY
+    NAME;
