@@ -14,13 +14,14 @@ class Solution {
         int MID = (MIN + MAX) / 2;
         int RESULT = 0;
         
+        // h값을 찾기위한 outerSearch
         while (MIN < MAX) {
             int INNER_MIN = 0;
             int INNER_MAX = LENGTH-1;
             int INNER_MID = (INNER_MIN + INNER_MAX) / 2;
             int INNER_RESULT = 0;
             
-            // MID 이상인 논문 수를 구해야 한다.
+            // MID 이상인 논문 수를 구해야 한다. innerSearch
             while(INNER_MIN < INNER_MAX) {
                 if (MID <= citations[INNER_MID])
                     INNER_MAX = INNER_MID;
