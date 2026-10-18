@@ -1,0 +1,13 @@
+SELECT
+    a. ID,
+    a. GENOTYPE,
+    b.GENOTYPE as PARENT_GENOTYPE
+FROM
+    ECOLI_DATA as a
+JOIN
+    ECOLI_DATA as b
+WHERE
+    a.PARENT_ID = b.ID AND
+    (b.GENOTYPE & a.GENOTYPE) = b.GENOTYPE
+ORDER BY
+    ID ASC;
