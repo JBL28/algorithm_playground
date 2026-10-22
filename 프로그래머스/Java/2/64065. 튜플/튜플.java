@@ -3,7 +3,7 @@ import java.util.*;
 class Solution {
     public int[] solution(String s) {
         List<List<Integer>> parsed = parse(s);
-        Set<Integer> set = new HashSet<>();
+        boolean[] visited = new boolean[100001];
         parsed.sort((a, b) -> Integer.compare(a.size(), b.size()));
         
         int[] answer = new int[parsed.get(parsed.size()-1).size()];
@@ -11,8 +11,8 @@ class Solution {
         int inserted = 0;
         for (int i=0; i<parsed.size(); i++) {
             for (int temp : parsed.get(i)) {
-                if (!set.contains(temp)) {
-                    set.add(temp);
+                if (!visited[temp]) {
+                    visited[temp] = true;
                     answer[inserted++] = temp;
                     break;
                 }
