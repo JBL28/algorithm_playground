@@ -1,0 +1,13 @@
+SELECT
+    count(*) as FISH_COUNT,
+    b.FISH_NAME
+FROM
+    FISH_INFO as a
+JOIN
+    FISH_NAME_INFO as b
+WHERE
+    a.FISH_TYPE = b.FISH_TYPE
+GROUP BY
+    FISH_NAME
+ORDER BY
+    FISH_COUNT desc;
